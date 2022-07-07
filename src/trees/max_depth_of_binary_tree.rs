@@ -19,7 +19,7 @@ use std::rc::Rc;
 use std::cell::RefCell;
 use std::cmp;
 impl Solution {
-    // recursive depth-first search
+    // recursive depth-first search version
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut max_depth: i32 = 0;
         let mut max_left = 0;
@@ -35,4 +35,21 @@ impl Solution {
             return max_depth;
         }
     }
+
+
+    // iterative depth first search version
+    // pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    //   
+    //   let mut max_depth: i32 = 0;
+    //   let mut stack = vec![(root.clone(), 1)];
+    //   while let Some((node, depth)) = stack.pop() {
+    //     if let Some(node) = node {
+    //       let node = node.borrow();
+    //       max_depth = cmp::max(max_depth, depth);
+    //       stack.push((node.left.clone(), depth + 1));
+    //       stack.push((node.right.clone(), depth + 1));
+    //     }
+    //   } 
+    //   return max_depth
+    // }
 }
